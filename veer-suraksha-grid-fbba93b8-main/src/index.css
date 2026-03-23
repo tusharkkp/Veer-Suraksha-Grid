@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+    --primary: 215 70% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 25% 93%;
+    --secondary-foreground: 220 20% 15%;
+    --muted: 210 15% 94%;
+    --muted-foreground: 215 12% 48%;
+    --accent: 210 30% 90%;
+    --accent-foreground: 215 70% 30%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 215 70% 35%;
+    --radius: 0.375rem;
+
+    /* Municipal palette */
+    --gov-blue: 215 70% 35%;
+    --gov-blue-light: 215 60% 92%;
+    --gov-blue-dark: 215 75% 22%;
+    --risk-red: 0 72% 50%;
+    --risk-red-bg: 0 72% 95%;
+    --risk-yellow: 40 90% 50%;
+    --risk-yellow-bg: 40 90% 94%;
+    --risk-green: 142 60% 40%;
+    --risk-green-bg: 142 60% 94%;
+    --sos-red: 0 85% 45%;
+    --status-active: 142 60% 40%;
+    --status-idle: 40 50% 50%;
+    --status-emergency: 0 85% 45%;
+
+    --sidebar-background: 215 75% 22%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 210 60% 70%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 65% 30%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 60% 28%;
+    --sidebar-ring: 210 60% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+  }
+  .font-marathi {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+}
+
+@layer components {
+  .gov-header {
+    @apply bg-primary text-primary-foreground;
+  }
+  .gov-card {
+    @apply bg-card rounded-md border shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  .risk-badge-red {
+    @apply bg-[hsl(var(--risk-red-bg))] text-[hsl(var(--risk-red))] border border-[hsl(var(--risk-red)/0.3)] font-semibold px-2.5 py-0.5 rounded text-xs;
+  }
+  .risk-badge-yellow {
+    @apply bg-[hsl(var(--risk-yellow-bg))] text-[hsl(var(--risk-yellow))] border border-[hsl(var(--risk-yellow)/0.3)] font-semibold px-2.5 py-0.5 rounded text-xs;
+  }
+  .risk-badge-green {
+    @apply bg-[hsl(var(--risk-green-bg))] text-[hsl(var(--risk-green))] border border-[hsl(var(--risk-green)/0.3)] font-semibold px-2.5 py-0.5 rounded text-xs;
+  }
+  .status-active {
+    @apply text-[hsl(var(--status-active))];
+  }
+  .status-idle {
+    @apply text-[hsl(var(--status-idle))];
+  }
+  .status-emergency {
+    @apply text-[hsl(var(--status-emergency))];
+  }
+  .sos-button {
+    @apply bg-[hsl(var(--sos-red))] text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl active:scale-95 transition-all duration-150;
+  }
+  .panel-header {
+    @apply text-sm font-semibold uppercase tracking-wide text-muted-foreground mb-3;
+  }
+  .gov-table th {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted-foreground bg-muted/50 px-3 py-2 text-left;
+  }
+  .gov-table td {
+    @apply px-3 py-2 text-sm border-t;
+  }
+  .sensor-value {
+    @apply font-mono text-lg font-bold tabular-nums;
+  }
+  .sensor-label {
+    @apply text-xs text-muted-foreground uppercase tracking-wide;
+  }
+}
+
+@keyframes pulse-sos {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--sos-red) / 0.5); }
+  50% { box-shadow: 0 0 0 12px hsl(var(--sos-red) / 0); }
+}
+.animate-sos {
+  animation: pulse-sos 1.5s ease-in-out infinite;
+}
+
+@keyframes blink-alert {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-blink {
+  animation: blink-alert 1s ease-in-out infinite;
+}
