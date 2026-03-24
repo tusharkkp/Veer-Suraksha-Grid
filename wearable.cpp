@@ -7,7 +7,7 @@
 #define SCREEN_HEIGHT 64
 #define OLED_RESET -1
 
-#define GAS_PIN 34
+#define MQ2_PIN 34
 #define OXYGEN_PIN 35
 #define DHT_PIN 13
 #define SOS_PIN 18
@@ -36,7 +36,7 @@ void setup() {
   pinMode(RED_LED, OUTPUT);
   pinMode(BUZZER_PIN, OUTPUT);
 
-  Wire.begin(4, 15); // SDA, SCL
+  Wire.begin(4, 15);
   dhtSensor.setup(DHT_PIN, DHTesp::DHT22);
 
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
@@ -46,27 +46,21 @@ void setup() {
 
   display.clearDisplay();
   display.display();
-  Serial.println("VeerGuard started");
+  Serial.println("VeerGuard with MQ2 started");
 }
 
 void loop() {
-  // Read potentiometers
-  int gasRaw = analogRead(GAS_PIN);
+  int gasRaw = analogRead(MQ2_PIN);
   int oxygenRaw = analogRead(OXYGEN_PIN);
 
-  // Read DHT22
   TempAndHumidity data = dhtSensor.getTempAndHumidity();
   temperature = data.temperature;
   humidity = data.humidity;
 
-  // Convert simulated values
   gasPercent = map(gasRaw, 0, 4095, 0, 100);
   oxygenPercent = 10.0 + ((float)oxygenRaw / 4095.0) * 11.0;
-
-  // Read SOS
   sosPressed = (digitalRead(SOS_PIN) == LOW);
 
-  // Rule checks
   bool gasDanger = gasPercent > 60;
   bool gasWarning = gasPercent > 30 && gasPercent <= 60;
 
@@ -79,7 +73,6 @@ void loop() {
   bool humidityDanger = humidity > 85;
   bool humidityWarning = humidity > 70 && humidity <= 85;
 
-  // Final state
   if (sosPressed) {
     statusText = "EMERGENCY";
   } else if (gasDanger || oxygenDanger || tempDanger || humidityDanger) {
@@ -90,13 +83,11 @@ void loop() {
     statusText = "SAFE";
   }
 
-  // Reset outputs
   digitalWrite(GREEN_LED, LOW);
   digitalWrite(YELLOW_LED, LOW);
   digitalWrite(RED_LED, LOW);
   digitalWrite(BUZZER_PIN, LOW);
 
-  // Output behavior
   if (statusText == "SAFE") {
     digitalWrite(GREEN_LED, HIGH);
   } else if (statusText == "WARNING") {
@@ -110,7 +101,6 @@ void loop() {
     digitalWrite(BUZZER_PIN, HIGH);
   }
 
-  // OLED
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
@@ -146,8 +136,9 @@ void loop() {
 
   display.display();
 
-  // Serial
-  Serial.print("Gas=");
+  Serial.print("GasRaw=");
+  Serial.print(gasRaw);
+  Serial.print(" | Gas=");
   Serial.print(gasPercent, 1);
   Serial.print("% | O2=");
   Serial.print(oxygenPercent, 1);
