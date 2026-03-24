@@ -6,6 +6,10 @@ Veer Suraksha Grid is a smart municipal safety and governance platform designed 
 This project focuses on protecting **sanitation workers / स्वच्छता वीर** by combining **worker safety monitoring, machine-first enforcement, digital manual-entry approval, map-based command visibility, emergency response, and incident accountability** into one integrated platform.
 
 ---
+## Our designed IOT :
+
+1. VeerGuard :
+https://wokwi.com/projects/459388882718752769
 
 ## Problem Statement
 
