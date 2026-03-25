@@ -11,6 +11,9 @@ This project focuses on protecting **sanitation workers / स्वच्छत�
 1. VeerGuard :
 https://wokwi.com/projects/459388882718752769
 
+2. VeerProbe :
+https://wokwi.com/projects/459459889041425409
+
 ## Problem Statement
 
 Sanitation workers involved in sewer and manhole operations face serious risks such as:
