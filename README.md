@@ -8,9 +8,45 @@ This project focuses on protecting **sanitation workers / स्वच्छत�
 
 ---
 
-## System Modules
+## Problem Statement
 
-### 🔹 VeerGuard & VeerProbe (Hardware Prototypes)
+Sanitation workers involved in sewer and manhole operations face serious risks such as:
+
+* toxic gas exposure
+* oxygen-deficient environments
+* unsafe manual entry
+* poor real-time visibility
+* delayed emergency response
+* weak coordination between field teams and command authorities
+
+Although mechanized cleaning systems exist, field operations often lack an integrated digital workflow that connects worker safety, asset risk, machine allocation, manual-entry control, and municipal command visibility.
+
+Veer Suraksha Grid addresses this gap.
+
+---
+
+## Solution Overview
+
+Veer Suraksha Grid is a **Marathi-first, map-centric, field-to-command municipal operating platform**.
+
+---
+
+## Key Features
+
+* Worker Safety Monitoring (VeerGuard)
+* Pre-Entry Hazard Inspection (VeerProbe)
+* Remote Inspection (VeerCrawler)
+* Machine-First Enforcement (FleetEye)
+* Manual Entry Approval (VeerPass)
+* Risk Scoring (VeerRisk)
+* AI Hazard Support (VeerVision)
+* Incident Logging (VeerBlackBox)
+* Preventive Planning (VeerPlan)
+* Command Dashboard (SwachhCommander)
+
+---
+
+## 🔹 Hardware Prototypes
 
 | VeerGuard                                                                                                                             | VeerProbe                                                                                                                             |
 | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,73 +54,114 @@ This project focuses on protecting **sanitation workers / स्वच्छत�
 
 ---
 
+## System Modules
+
 ### 1. VeerGuard
 
-Worker-side wearable safety system for monitoring gas and oxygen conditions and sending SOS alerts.
-🔗 Prototype Simulation: https://wokwi.com/projects/459775621087630337
-
----
+Worker wearable system for gas & oxygen monitoring with SOS alert
+🔗 https://wokwi.com/projects/459775621087630337
 
 ### 2. VeerProbe
 
-Pre-entry inspection kit for checking manhole/sewer conditions before manual intervention.
-🔗 Prototype Simulation: https://wokwi.com/projects/459775523515525121
-
----
+Pre-entry inspection kit for sewer condition validation
+🔗 https://wokwi.com/projects/459775523515525121
 
 ### 3. VeerCrawler
 
-Portable robotic inspection support for remote inspection in high-risk environments.
+Robotic inspection for high-risk zones
 
 ### 4. VeerEdge
 
-Field communication gateway for device-to-platform connectivity.
+Communication gateway
 
 ### 5. FleetEye
 
-Machine tracking, allocation, and machine-first governance system.
+Machine allocation & enforcement
 
 ### 6. VeerRegistry
 
-Digital registry for sewer/manhole assets, zone mapping, and asset history.
+Asset mapping & history
 
 ### 7. VeerRisk
 
-Dynamic risk scoring engine based on zone, inspection, telemetry, and context.
+Dynamic risk engine
 
 ### 8. VeerVision
 
-AI-assisted visual hazard detection and anomaly support.
+AI hazard detection
 
 ### 9. VeerPlan
 
-Preventive maintenance and planning engine.
+Preventive planning
 
 ### 10. VeerPass
 
-Digital authorization workflow for manual-entry approval.
+Manual-entry approval system
 
 ### 11. VeerBlackBox
 
-Incident logging, traceability, and replay system.
+Incident logging
 
-### 12. SwachhCommander Dashboard
+### 12. SwachhCommander
 
-Central command dashboard for Commander/Admin.
+Command dashboard
 
-### 13. Grievance Integration
+---
 
-Complaint intake and complaint-to-task workflow integration.
+## 🌍 Zone GIS Mapping
+
+* 📍 Interactive GIS Map (Solapur Zones):
+  https://earth.google.com/earth/d/1jtABCrGw-vPXhfssk98tC4UZ5FNWHe0g?usp=sharing
 
 ---
 
 ## Project Resources
 
-* 📂 Drive Folder (Detailed Files, Assets, Documentation):
+* 📂 Drive Folder (Docs, Reports, Assets):
   https://drive.google.com/drive/folders/1rUzt5R1aams7Y4fpCMTTPNq3MOBw7zqz?usp=drive_link
+
+---
+
+## Architecture Summary
+
+Layered system:
+
+* Field Layer
+* IoT Layer
+* Communication Layer
+* Backend
+* Data & AI
+* Governance
+* UI Layer
+
+---
+
+## Technology Stack
+
+**Frontend:** HTML, CSS, JS, Bootstrap, Leaflet
+**Backend:** Node.js, Express
+**Database:** Firebase, InfluxDB
+**IoT:** ESP32 sensors
+**Tools:** GitHub, VS Code
+
+---
+
+## Social Impact
+
+* Worker safety improvement
+* Dignity for स्वच्छता वीर
+* Faster emergency response
+* Reduced manual exposure
+* Better municipal coordination
+
+---
+
+## Project Vision
+
+To build a **connected, accountable, and municipally deployable sanitation safety platform**.
 
 ---
 
 ## Acknowledgement
 
-This project is developed as part of the **SAMVED Hackathon** and is inspired by the need to build safer, smarter, and more accountable sanitation systems for Solapur Municipal Corporation.
+Developed under **SAMVED Hackathon (MIT VPU + Solapur Municipal Corporation)**.
