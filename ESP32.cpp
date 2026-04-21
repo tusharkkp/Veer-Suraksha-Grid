@@ -57,10 +57,10 @@
 #define WIFI_PASSWORD    "12345678"
 
 // Firebase Realtime Database URL  (e.g. "https://my-project-default-rtdb.firebaseio.com")
-#define FIREBASE_URL     "https://veer-e0727-default-rtdb.firebaseio.com/"
+#define FIREBASE_URL     ""
 
 // Firebase Database Secret  (Firebase Console → Project Settings → Service Accounts → Database secrets)
-#define FIREBASE_SECRET  "cgBzt7hjHY0x7c9pyVfVco61kYDq7OLWF8u9j1gx"
+#define FIREBASE_SECRET  ""
 
 // Firebase DB path — worker identifier
 #define WORKER_PATH      "telemetry/Worker1"
